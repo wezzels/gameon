@@ -1,0 +1,125 @@
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" type="text/css" href="button.css">
+  <link rel="stylesheet" type="text/css" href="remote.css">
+  <script src="jquery-3.4.1.min.js"></script>
+</head>
+<body>
+    
+    <script type="text/javascript" src="remote.js"></script>
+<script>
+  function scr(button) {
+    var action = button.value;
+    var t_score = 0; 
+    var score = 0; 
+    switch(action) {
+      case 'Home+':
+		    var data = "{ action: \"" + action + "\" }";
+		    $.post('h_scr.php',data, function(returnedData) {
+		            var temp = returnedData.split(' ');
+			    t_score = Number(temp[1]);
+		      score = t_score;
+	              document.getElementById("h_scr").innerHTML = (1 + score);
+			    $.post("save_game.php",{ action: "Home+" }, function(returnedData) { console.log("console:" + returnedData);
+                      });
+	            });
+		    break;
+      case 'Away+':
+		    var data = "{ action: " + action + " }";
+		    $.post('v_scr.php',data, function(returnedData) { 
+			     var temp = returnedData.split(' ');
+			     t_score = Number(temp[1]);
+                      score = t_score;
+  		      document.getElementById("v_scr").innerHTML = (1 + score);
+			    $.post('save_game.php',{ action: "Away+" }, function(returnedData) {
+		      });
+	            });    
+		    break;
+       case 'Set H':
+                   $.post('h_set.php',data, function(returnedData) {
+                            var temp = returnedData.split(' ');
+                            t_set = Number(temp[1]);
+                            set = t_set;
+			   if ( (set + 1) > 3) {
+                              document.getElementById("h_set").innerHTML = 0;
+                            } else {
+                              document.getElementById("h_set").innerHTML = (set + 1);
+                            }
+                            $.post("save_game.php",{ action: "Set H" }, function(returnedData) {
+                            });
+                    })
+		    break;
+       case 'Set V':
+                   $.post('v_set.php',data, function(returnedData) {
+                            var temp = returnedData.split(' ');
+                            t_set = Number(temp[1]);
+                            set = t_set;
+                           if ( (set + 1) > 3) {
+                              document.getElementById("v_set").innerHTML = 0;
+                            } else {
+                              document.getElementById("v_set").innerHTML = (set + 1);
+                            }
+                            $.post("save_game.php",{ action: "Set V" }, function(returnedData) {
+                            });
+                    })
+		    
+                    break;
+       case 'Home-':
+                    $.post('h_scr.php',data, function(returnedData) {
+                            var temp = returnedData.split(' ');
+                            t_score = Number(temp[1]);
+                            score = t_score;
+  		            if ( (score - 1) < 0) {
+		              document.getElementById("h_scr").innerHTML = 0;
+    		            } else {
+		              document.getElementById("h_scr").innerHTML = (score - 1);
+		            }
+                            $.post("save_game.php",{ action: "Home-" }, function(returnedData) {
+                            });
+                    })
+		    break;
+       case 'Away-':
+                  $.post('v_scr.php',data, function(returnedData) {
+                            var temp = returnedData.split(' ');
+                            t_score = Number(temp[1]);
+                            score = t_score;
+                            if ( (score - 1) < 0) {
+                              document.getElementById("v_scr").innerHTML = 0;
+                            } else {
+                              document.getElementById("v_scr").innerHTML = (score - 1);
+                            }
+                            $.post("save_game.php",{ action: "Away-" }, function(returnedData) {
+                            });
+                    })
+
+		    break;
+
+       default:
+		    console.log("This should never happen!");
+
+    }
+  }
+</script>
+
+    <table style="width:100%;height:70%; text-align:center;"> <tr>
+		    <td><div id='homeinfo'><p style="font-size: 5vw;" >HOME <span id="h_scr">0</span><br>Won:<span id="h_set">0</span></div></td>
+		    <td><div id='awayinfo'><p style="font-size: 5vw;" >AWAY <span id="v_scr">0</span><br>Won:<span id="v_set">0</span></div></td>
+    </tr><tr><td>
+	<input type="button" value="Home+" class="Doit" style="font-size: 4vw;" 
+	   id="btnscr" onclick="scr(this);"></td><td>
+	<input type="button" value="Away+" class="Doit" style="font-size: 4vw;" 
+	   id="btnscr" onclick="scr(this);"></td></tr><tr><td>
+	<input type="button" value="Set H" class="Doit" style="font-size: 4vw;" 
+	   id="btnscr" onclick="scr(this);"></td><td>
+	<input type="button" value="Set V" class="Doit" style="font-size: 4vw;" 
+	   id="btnscr" onclick="scr(this);"></td></tr><tr><td>
+	<input type="button" value="Home-" class="Doit" style="font-size: 4vw;" 
+	   id="btnscr" onclick="scr(this);"></td><td>
+	<input type="button" value="Away-" class="Doit" style="font-size: 4vw;" 
+	   id="btnscr" onclick="scr(this);"></td></tr>
+    </table>
+
+
+  </body>
+</html>

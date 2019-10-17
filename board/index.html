@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="vb_board.css">
+  </head>
+<body>
+	<div id="rcorners2">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<div id="title"><p class="glow">St. Therese</p></div>
+
+<link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+<div id="homescr" style="font-family: 'Orbitron', sans-serif; color:white; font-size: 20vw;">0</div>
+<div id="homesett" style="font-family: 'Orbitron', sans-serif; color:white; font-size: 8vw;">Won: </div>
+<div id='homeset'>0</div>
+
+<div id="homename" style="font-family: 'Orbitron', sans-serif; color:white; font-size: 10vw;">Home</div>
+<div id="visitscr" style="font-family: 'Orbitron', sans-serif; color:white; font-size: 20vw;">0</div>
+<div id="visitsett" style="font-family: 'Orbitron', sans-serif; color:white; font-size: 8vw;">Won: </div>
+<div id='visitset'>0</div>
+<div id="visitname" style="font-family: 'Orbitron', sans-serif; color:white; font-size: 10vw;">Guest</div>
+
+</div>
+
+<script>
+  var count = 0;
+  //console.log("Score Away: start.");
+  if(typeof(EventSource) !== "undefined") {
+    var source = new EventSource("v_scr.php");
+    //console.log("Score Away: create.");
+    source.onmessage = function(event) {
+	//console.log("Score Away: in onMessage");
+        document.getElementById("visitscr").innerHTML = event.data ;
+        //document.getElementById("result").innerHTML += event.data ;
+    };
+} else {
+   document.getElementById("visitscr").innerHTML = "Sorry, your browser does not support server-sent events...";
+}
+</script>
+
+<script>
+  //console.log("Score Home: start.");
+  if(typeof(EventSource) !== "undefined") {
+    var source = new EventSource("h_scr.php");
+    source.onmessage = function(event) {
+      document.getElementById("homescr").innerHTML = event.data ;
+    };
+  } else {
+   document.getElementById("homescr").innerHTML = "Sorry, your browser does not support server-sent events...";
+  }
+</script>
+
+<script>
+  //console.log("Set Home: start.");
+  if(typeof(EventSource) !== "undefined") {
+    var source = new EventSource("h_set.php");
+    //console.log("Set Home: Create.");
+    source.onmessage = function(event) {
+     //console.log("Set Home: In onMessage");
+     document.getElementById("homeset").innerHTML = event.data ;
+  };
+} else {
+   document.getElementById("homeset").innerHTML = "Sorry, your browser does not support server-sent events...";
+}
+</script>
+<script>
+  //console.log("Set Away: start.");
+  if(typeof(EventSource) !== "undefined") {
+  var source = new EventSource("v_set.php");
+  source.onmessage = function(event) {
+    document.getElementById("visitset").innerHTML = event.data ;
+  };
+} else {
+  document.getElementById("visitset").innerHTML = "Sorry, your browser does not support server-sent events...";
+}
+</script>
+
+</body>
+</html>
