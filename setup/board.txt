@@ -1,0 +1,15 @@
+Name            Left    Top     Height  Width
+  Clock         25      11      33      50      Clock
+Period
+  Number        46.875  55      22      6.25    Period_Number
+  Label         37.5    83      11      25      Period_Label
+Home
+  Logo          3.125   5.5     33      18.75   Home_Logo
+  Label         9.3     55      11      25      Home_Label
+  Score         12.5    77      25      22      Home_Score
+  Possesion     37.5    66      11      6.25    Home_Pos
+Guest
+  Logo          -3.125   5.5    33      18.75   Guest_Logo
+  Label         -9.3     55     11      25      Guest_Label
+  Score         -12.5    77     25      22      Guest_Score
+  Possesion     -37.5    66     11      6.25    Guest_Pos

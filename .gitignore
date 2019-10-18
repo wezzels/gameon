@@ -1,4 +1,5 @@
-
-
+board/^.txt
+b-board/*.txt
+v-board/^.txt
 tt/
 tl/
