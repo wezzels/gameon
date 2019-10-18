@@ -5,7 +5,7 @@ var hour = 0
     , started = null
     , durationCompleted = false
     , bTime = null
-    , msi = 0;
+    , ms = 0;
 var audio = new Audio('Buzz.wav');
 
 function set_timer(sethour,setmin,setsec) {
@@ -16,7 +16,7 @@ function set_timer(sethour,setmin,setsec) {
     }
 
 function start() {
-    msi = 0;
+    ms = 0;
     bTime = new Date();
     clockRunning();
     started = setInterval(clockRunning, 10 );	
@@ -37,12 +37,12 @@ function update_timer() {
 
 function clockRunning(){
     var currTime = new Date();
-    msi = msi + (currTime - bTime);
-    if ( msi > 10 ) {
-      console.log("milliseconds : " + millisecond + " ms " + msi );
-      millisecond = millisecond - msi/10; //Math.round(msi/10);
-//      bTime = currTime;
-      msi = 0;
+    ms = (currTime - bTime) / 10;
+    //console.log("milliseconds : " + millisecond + " ms " + ms );
+    if ( ms > 1 ) {
+      millisecond = millisecond - Math.floor(ms);
+      bTime = currTime;
+      ms = 0;
     }
     if ( millisecond < 0 ) {
         second--;
@@ -71,7 +71,7 @@ function clockRunning(){
   if ( durationCompleted ) {
     var min = minute
         , sec = second
-        , ms = Math.floor(millisecond);
+        , ms = millisecond;
     if ( minute > 0 ) { 
       document.getElementById("timer-area").innerHTML = 
         (min > 9 ? min : "0" + min) + ":" + 
@@ -83,5 +83,4 @@ function clockRunning(){
           (ms > 99 ? ms : ms > 9 ? "" + ms : "0" + ms);
     }
   }
-bTime = currTime;
 }

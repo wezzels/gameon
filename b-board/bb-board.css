@@ -1,0 +1,129 @@
+
+#rcorners2 {
+  border-radius: 25px;
+  border: 2px solid #73AD21;
+  position: absolute;
+  top: 1vw;
+  left: 1vw;
+  padding: 10px;
+  width: 95vw;
+  height: 95vh;
+}
+
+body {
+  background-color: black;
+  font-family: cursive;
+}
+
+#Clock {
+    position: fixed;
+    left: 10%;
+    top: 10%;
+    font-family: 'Orbitron',sans-serif;
+    color:white;
+    font-size: 8vw; 
+    height: 10%;
+    width: 10%;
+}
+
+#Period_Number {
+    position: fixed;
+    left: 10%;
+    top: 10%;
+    font-family: 'Orbitron',sans-serif;
+    color:white;
+    font-size: 8vw;
+    height: 10%;
+    width: 10%;
+}
+#Period_Label {
+    position: fixed;
+    left: 10%;
+    top: 10%;
+    font-family: 'Orbitron',sans-serif;
+    color:white;
+    font-size: 8vw;
+    height: 10%;
+    width: 10%;
+}
+#Home_Logo {
+    position: fixed;
+    left: 10%;
+    top: 10%;
+    font-family: 'Orbitron',sans-serif;
+    color:white;
+    font-size: 8vw;
+    height: 10%;
+    width: 10%;
+}
+#Home_Label {
+    position: fixed;
+    left: 10%;
+    top: 10%;
+    font-family: 'Orbitron',sans-serif;
+    color:white;
+    font-size: 8vw;
+    height: 10%;
+    width: 10%;
+}
+#Home_Score {
+    position: fixed;
+    left: 10%;
+    top: 10%;
+    font-family: 'Orbitron',sans-serif;
+    color:white;
+    font-size: 8vw;
+    height: 10%;
+    width: 10%;
+}
+#Home_Pos {
+    position: fixed;
+    left: 10%;
+    top: 10%;
+    font-family: 'Orbitron',sans-serif;
+    color:white;
+    font-size: 8vw;
+    height: 10%;
+    width: 10%;
+}
+#Guest_Logo {
+    position: fixed;
+    left: 10%;
+    top: 10%;
+    font-family: 'Orbitron',sans-serif;
+    color:white;
+    font-size: 8vw;
+    height: 10%;
+    width: 10%;
+}
+#Guest_Label {
+    position: fixed;
+    left: 10%;
+    top: 10%;
+    font-family: 'Orbitron',sans-serif;
+    color:white;
+    font-size: 8vw;
+    height: 10%;
+    width: 10%;
+}
+#Guest_Score {
+    position: fixed;
+    left: 10%;
+    top: 10%;
+    font-family: 'Orbitron',sans-serif;
+    color:white;
+    font-size: 8vw;
+    height: 10%;
+    width: 10%;
+}
+#Guest_Pos {
+    position: fixed;
+    left: 10%;
+    top: 10%;
+    font-family: 'Orbitron',sans-serif;
+    color:white;
+    font-size: 8vw;
+    height: 10%;
+    width: 10%;
+}
+
