@@ -2,8 +2,8 @@
 <html>
   <head>
     <meta charset="utf-8"/>
-<script type="text/javascript" src="timer.js">	</script>
-    <link rel="stylesheet" href="vb_board.css">
+    <script type="text/javascript" src="timer.js"></script>
+    <link rel="stylesheet" href="bb-board.css">
   </head>
 <body>
 	<div id="rcorners2">
@@ -11,23 +11,19 @@
 
 <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
 
-<div id="timer-area"  style="font-family: 'Orbitron', sans-serif; color:white; font-size: 11vw;">00:00</div>
+<div id="Clock">00:00</div>
+<div id="Period_Number">0</div>
+<div id="Period_Label">Period</div>
 
-<div id="homePoints" style="font-family: 'Orbitron', sans-serif; color:white; font-size: 15vw;">00</div>
-<div id="homeName" style="font-family: 'Orbitron', sans-serif; color:white; font-size: 6vw;">Home</div>
-<div id="homeFoul" style="font-family: 'Orbitron', sans-serif; color:white; font-size: 4vw;">FOUL: </div>
-<div id="homeBonus" style="font-family: 'Orbitron', sans-serif; color:white; font-size: 2vw;">BONUS: </div>
-<div id="homeBcnt">0</div>
-<div id="homeFcnt">0</div>
+<div id="Home_Logo"><img src="../Crusader.jpg"></div>
+<div id="Home_Label">Home</div>
+<div id="Home_Score">00</div>
+<div id="Home_Pos">&#x21D0;</div>
 
-<div id="possession"> <= </div>
-
-<div id="visitPoints" style="font-family: 'Orbitron', sans-serif; color:white; font-size: 15vw;">00</div>
-<div id="visitName" style="font-family: 'Orbitron', sans-serif; color:white; font-size: 6vw;">Guest</div>
-<div id="visitFoul" style="font-family: 'Orbitron', sans-serif; color:white; font-size: 4vw;">FOUL: </div>
-<div id="visitBonus" style="font-family: 'Orbitron', sans-serif; color:white; font-size: 2vw;">BONUS: </div>
-<div id="visitBcnt">0</div>
-<div id="visitFcnt">0</div>
+<div id="Guest_Logo"><img src="../crying_girl.jpg"></div>
+<div id="Guest_Label">Guest</div>
+<div id="Guest_Score">00</div>
+<div id="Guest_Pos">&#x21D2;</div>
 
 </div>
 
@@ -36,10 +32,10 @@
   if(typeof(EventSource) !== "undefined") {
     var source = new EventSource("v_scr.php");
     source.onmessage = function(event) {
-        document.getElementById("visitPoints").innerHTML = event.data ;
+        document.getElementById("Guest_Score").innerHTML = event.data ;
     };
 } else {
-   document.getElementById("visitPoints").innerHTML = "Sorry, your browser does not support server-sent events...";
+   document.getElementById("Guest_Score").innerHTML = "Sorry, your browser does not support server-sent events...";
 }
 </script>
 
@@ -47,31 +43,31 @@
   if(typeof(EventSource) !== "undefined") {
     var source = new EventSource("h_scr.php");
     source.onmessage = function(event) {
-      document.getElementById("homePoints").innerHTML = event.data ;
+      document.getElementById("Home_Score").innerHTML = event.data ;
     };
   } else {
-   document.getElementById("homePoints").innerHTML = "Sorry, your browser does not support server-sent events...";
+   document.getElementById("Home_Score").innerHTML = "Sorry, your browser does not support server-sent events...";
   }
 </script>
 
 <script>
   if(typeof(EventSource) !== "undefined") {
-    var source = new EventSource("h_set.php");
+    var source = new EventSource("hi_set.php");
     source.onmessage = function(event) {
-     document.getElementById("homeBcnt").innerHTML = event.data ;
+     document.getElementById("Home_Pos").innerHTML = event.data ;
   };
 } else {
-   document.getElementById("homeBcnt").innerHTML = "Sorry, your browser does not support server-sent events...";
+   document.getElementById("Home_Pos").innerHTML = "Sorry, your browser does not support server-sent events...";
 }
 </script>
 <script>
   if(typeof(EventSource) !== "undefined") {
-  var source = new EventSource("v_set.php");
+  var source = new EventSource("vi_set.php");
   source.onmessage = function(event) {
-    document.getElementById("visitBcnt").innerHTML = event.data ;
+    document.getElementById("Guest_Pos").innerHTML = event.data ;
   };
 } else {
-  document.getElementById("visitBcnt").innerHTML = "Sorry, your browser does not support server-sent events...";
+  document.getElementById("Guest_Pos").innerHTML = "Sorry, your browser does not support server-sent events...";
 }
 </script>
 
