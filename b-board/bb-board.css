@@ -1,10 +1,10 @@
 #rcorners2 {
-  border-radius: 25px;
+  border-radius: 5px;
   border: 2px solid #73AD21;
   position: absolute;
   top: 1vw;
   left: 1vw;
-  padding: 10px;
+  padding: 1px;
   width: 95vw;
   height: 95vh;
 }
@@ -19,29 +19,34 @@ body {
   background-color: black;
   font-family: cursive;
 }
-
+#School {
+    position: absolute;
+    left: 50%;
+    top: 5%;
+/*    font-family: 'Orbitron',sans-serif; */
+    color: blue;
+    text-align: center;
+    font-size: 6vw;
+    height: 10%;
+    width: 25%;
+  transform: translate(-60%,-50%);
+}
 #Clock {
-  border-radius: 25px;
-  border: 2px solid #73AD21;
-  padding: 1px; 
   position: absolute;
   left: 50%;
   top: 25%;
   font-family: 'Orbitron',sans-serif;
   color:white;
   font-size: 13.5vw;
-  height: 30%;
+  height: 32%;
   width: 50%;
   transform: translate(-50%,-50%);
 }
 #Period_Number {
-  border-radius: 25px;
-  border: 2px solid #73AD21;
-  padding: 1px;
   position: absolute;
   
     left: 50%;
-    top: 65%;
+    top: 70%;
     font-family: 'Orbitron',sans-serif;
     color:white;
     text-align: center;
@@ -53,13 +58,13 @@ body {
 #Period_Label {
     position: absolute;
     left: 50%;
-    top: 90%;
+    top: 85%;
     font-family: 'Orbitron',sans-serif;
     color: white;
     font-size: 5vw;
     height: 11%;
     width: 25%;
-  transform: translate(-40%,-50%);
+  transform: translate(-37%,-50%);
 }
 #Home_Logo {
     position: absolute;
@@ -75,7 +80,7 @@ body {
 #Home_Label {
     position: absolute;
     left: 9%;
-    top: 55%;
+    top: 45%;
     font-family: 'Orbitron',sans-serif;
     color:white;
     font-size: 6vw;
@@ -86,7 +91,7 @@ body {
 #Home_Score {
     position: absolute;
     left: 8%;
-    top: 67%;
+    top: 57%;
     font-family: 'Orbitron',sans-serif;
     color: white;
     font-size: 12vw;
@@ -96,10 +101,30 @@ body {
 #Home_Pos {
     position: absolute;
     left: 35.5%;
-    top: 56%;
+    top: 60%;
+    font-family: 'Orbitron',sans-serif;
+    color:#101010;
+    font-size: 8vw;
+    height: 11%;
+    width: 6.25%;
+}
+#Home_Foul_label {
+    position: absolute;
+    left: 9%;
+    top: 85%;
     font-family: 'Orbitron',sans-serif;
     color:white;
-    font-size: 8vw;
+    font-size: 3vw;
+    height: 11%;
+    width: 6.25%;
+}
+#Home_Foul {
+    position: absolute;
+    left: 9%;
+    top: 93%;
+    font-family: 'Orbitron',sans-serif;
+    color:white;
+    font-size: 2vw;
     height: 11%;
     width: 6.25%;
 }
@@ -116,7 +141,7 @@ body {
 #Guest_Label {
     position: absolute;
     left: 74%;
-    top: 55%;
+    top: 45%;
     font-family: 'Orbitron',sans-serif;
     color:white;
     font-size: 6vw;
@@ -126,7 +151,7 @@ body {
 #Guest_Score {
     position: absolute;
     left: 73%;
-    top: 67%;
+    top: 57%;
     font-family: 'Orbitron',sans-serif;
     color:white;
     font-size: 12vw;
@@ -136,10 +161,32 @@ body {
 #Guest_Pos {
     position: absolute;
     left: 57%;
-    top: 56%;
+    top: 60%;
     font-family: 'Orbitron',sans-serif;
     color:white;
     font-size: 8vw;
     height: 11%;
     width: 6.25%;
 }
+#Guest_Foul_label {
+    position: absolute;
+    left: 74%;
+    top:  85%;
+    font-family: 'Orbitron',sans-serif;
+    color:white;
+    font-size: 3vw;
+    height: 11%;
+    width: 6.25%;
+}
+
+#Guest_Foul {
+    position: absolute;
+    left: 74%;
+    top:  90%;
+    font-family: 'Orbitron',sans-serif;
+    color:white;
+    font-size: 4vw;
+    height: 11%;
+    width: 6.25%;
+}
+
